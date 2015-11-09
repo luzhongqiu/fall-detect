@@ -1,0 +1,16 @@
+E:\fall\fall\ControlsBasics-WPF\.Debug\KinectInteraction180_32.dll
+E:\fall\fall\ControlsBasics-WPF\.Debug\KinectInteraction180_64.dll
+E:\fall\fall\ControlsBasics-WPF\.Debug\Microsoft.Kinect.Toolkit.Controls.dll
+E:\fall\fall\ControlsBasics-WPF\.Debug\Microsoft.Kinect.Toolkit.Controls.pdb
+E:\fall\fall\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.csprojResolveAssemblyReference.cache
+E:\fall\fall\Microsoft.Kinect.Toolkit.Controls\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\fall\fall\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls_MarkupCompile.cache
+E:\fall\fall\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls_MarkupCompile.lref
+E:\fall\fall\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Themes\Generic.baml
+E:\fall\fall\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.g.resources
+E:\fall\fall\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.dll
+E:\fall\fall\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.pdb
+E:\fall\fall\kanhu\.Debug\KinectInteraction180_32.dll
+E:\fall\fall\kanhu\.Debug\KinectInteraction180_64.dll
+E:\fall\fall\kanhu\.Debug\Microsoft.Kinect.Toolkit.Controls.dll
+E:\fall\fall\kanhu\.Debug\Microsoft.Kinect.Toolkit.Controls.pdb

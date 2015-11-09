@@ -1,0 +1,111 @@
+﻿<Window x:Class="Microsoft.Samples.Kinect.ControlsBasics.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:k="http://schemas.microsoft.com/kinect/2013"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Microsoft.Samples.Kinect.ControlsBasics"
+         xmlns:my ="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
+        xmlns:my1="clr-namespace:Visifire.Gauges;assembly=WPFVisifire.Gauges"
+       
+        Name="ControlsBasicsWindow"
+        Title="fall"
+        Closing="WindowClosing"
+        mc:Ignorable="d"
+        d:DesignWidth="1200"
+        d:DesignHeight="700"
+        MinWidth="1366"
+        MinHeight="768"
+        FontFamily="Segoe UI"
+        Width="1366"
+        Height="768"
+        
+        >
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/bg.gif" Stretch="None"/>
+        </Grid.Background>
+        <k:KinectRegion x:Name="kinectRegion" Margin="-10,0,10,10">
+            <Grid>
+                <Grid  Height="100" Margin="10,10,-10,618">
+                    <Image HorizontalAlignment="Left" Source="/Images/Logo.png"   Height="71" Margin="26,10,0,0" VerticalAlignment="Top" Width="139"   />
+                    <Label Content="当前状态:" HorizontalAlignment="Left" Margin="26,670,0,-640" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="28" VerticalAlignment="Center"  Height="70" Width="134"/>
+                    <Label Name="currentstate" Content="若移动设备，请先初始化" HorizontalAlignment="Left" Margin="165,670,0,-640" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="28" VerticalAlignment="Center"  Height="70" Width="850"/>
+                    <k:KinectUserViewer k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="90" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="612,0,630,0" Width="116" />
+                    <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" />
+                    <k:KinectTileButton Content="初始化" HorizontalAlignment="Left" Margin="1067,10,0,0" VerticalAlignment="Top" Height="71" Width="125" Click="init" Background="#FFD2C7AB"/>
+                    <k:KinectTileButton Name="cursormode" Content="鼠标模式" HorizontalAlignment="Left" Margin="1197,10,0,0" VerticalAlignment="Top" Height="71" Width="125" Click="cursormode_Click" Background="#FFD2C7AB" RenderTransformOrigin="0.52,0.535"/>
+                </Grid>
+                <Grid x:Name="kinectRegionGrid">
+
+
+
+
+                    <Grid x:Name="menugrid">
+                        <k:KinectTileButton Name="fall" HorizontalAlignment="Left"  Content="摔倒识别" Background="#FFD2C7AB" Height="200" Width="400" Margin="118,195,0,333" Click="menuclick" />
+                        <k:KinectTileButton Name="zhineng" HorizontalAlignment="Right" Content="智能检测" Background="#FFD2C7AB" Height="200" Width="400" Margin="0,400,850,128"  Click="menuclick" />
+                    </Grid>
+
+
+
+                    <Grid Visibility="Hidden" Name="fallgrid" Height="480" Grid.ColumnSpan="2" Margin="9,21,10,0">
+                        <Image HorizontalAlignment="Left" Height="480" Margin="5,8,0,-8" VerticalAlignment="Top" Width="640"  Name="depthImage"  />
+                        <k:KinectCircleButton Click="fallback" Content="返回" HorizontalAlignment="Left" Margin="1238,-18,-7,0" VerticalAlignment="Top" Height="115" Width="108" />
+                        <k:KinectTileButton Name="up" Content="上" HorizontalAlignment="Left" Margin="777,30,0,0" VerticalAlignment="Top" Height="94" Width="91" Background="#FFD2C7AB" FontSize="22" Click="KinectTileButton_Click_1"/>
+                        <k:KinectTileButton Name="down" Content="下" HorizontalAlignment="Left" Margin="873,29,0,0" VerticalAlignment="Top" Height="94" Width="91" Background="#FFD2C7AB" FontSize="22" Click="down_Click" />
+                        <Label Content="角度&#xD;&#xA;调整" HorizontalAlignment="Left" Margin="680,26,0,0" VerticalAlignment="Top" Height="101" Width="82" FontSize="35"/>
+                        <k:KinectTileButton Name="zhinengButton" Content="开启智能监测" HorizontalAlignment="Left" Margin="680,154,0,0" VerticalAlignment="Top" Height="94" Width="284" Background="#FFD2C7AB" FontSize="22" Click="KinectTileButton_Click" RenderTransformOrigin="-2.147,0.319"/>
+
+                    </Grid>
+                    <Grid Visibility="Hidden"  Name="zhinenggrid" Margin="10,100,-10,-100" Grid.RowSpan="2" >
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="403"></RowDefinition>
+                            <RowDefinition Height="169"></RowDefinition>
+                            <RowDefinition Height="Auto" ></RowDefinition>
+                            <RowDefinition Height="218*" />
+                        </Grid.RowDefinitions>
+
+
+                        <my:Chart HorizontalAlignment="Left" Name="SpeedChart" VerticalAlignment="Top" Height="225" Width="779" Margin="10,20,0,0" Watermark="False" />
+                        <Label Margin="689,22,572,318" Name="showSpeed"  MinHeight="3" Content=" 准备开始" Height="29" Opacity="1" Background="#DC1E1A1A" Foreground="#FF11BA11"></Label>
+                        <my1:Gauge HorizontalAlignment="Left" Name="gauge" Width="238" TabIndex="2147483647" CornerRadius="10" Margin="794,18,0,122" Height="229" />
+                        <Label Content="当前姿态" Height="26" HorizontalAlignment="Left" Margin="871,143,0,0" VerticalAlignment="Top" Width="90" Name="state" Foreground="#FFFBAD42" FontStretch="Normal" RenderTransformOrigin="0.473,-1.52">
+                            <Label.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF212125" Offset="0" />
+                                    <GradientStop Color="#FF2E2E35" Offset="1" />
+                                </LinearGradientBrush>
+                            </Label.Background>
+                        </Label>
+
+
+
+                        <my:Chart HorizontalAlignment="Left" Name="chartSpeedStatistic" VerticalAlignment="Top" Height="326" Width="496" View3D="False" Watermark="False" Margin="5,266,0,0" Grid.RowSpan="2" />
+                        <my:Chart HorizontalAlignment="Left" Margin="502,266,0,0" Name="chartPostureStatistic" VerticalAlignment="Top" Height="326" Width="499" Grid.RowSpan="2" />
+
+
+
+
+
+                        <k:KinectTileButton Content="开始" Name="Start"  Click="Start_Click" Height="130" Margin="1164,39,64,200" Width="130" RenderTransformOrigin="0.579,0.476" Background="#FFD2C7AB"  />
+                        <k:KinectTileButton Content="清空" Name="Restart"  Click="Restart_Click" Height="130" Margin="1164,341,64,301" Width="130" RenderTransformOrigin="0.579,0.476" Background="#FFD2C7AB" Grid.RowSpan="2"  />
+                        <k:KinectTileButton Content="显示结果" Name="showresult"  Click="button1_Click" Height="130" Margin="1164,189,64,50" Width="130" RenderTransformOrigin="0.579,0.476" Background="#FFD2C7AB"  />
+
+
+
+                        <Label Content="最后统计结果" Height="28" HorizontalAlignment="Left" Margin="15,236,0,0" Name="label1" VerticalAlignment="Top" Width="282"  />
+
+                        <k:KinectCircleButton   Content="返回"   Height="102" Width="126" Margin="1122,128,110,173" Grid.Row="1" Click="zhineng_back"  />
+                    </Grid>
+                </Grid>
+
+                <k:KinectCircleButton   Content="退出" HorizontalAlignment="Left" Margin="1204,598,0,0" VerticalAlignment="Top" Height="102" Width="126" Click="close" />
+            </Grid>
+        </k:KinectRegion>
+
+
+    </Grid>
+</Window>

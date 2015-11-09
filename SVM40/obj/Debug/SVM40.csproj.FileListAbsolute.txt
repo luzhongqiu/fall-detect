@@ -1,0 +1,6 @@
+E:\fall\fall\SVM40\bin\Debug\SVM40.exe
+E:\fall\fall\SVM40\bin\Debug\SVM40.pdb
+E:\fall\fall\SVM40\bin\Debug\SVMProject.dll
+E:\fall\fall\SVM40\obj\Debug\SVM40.csprojResolveAssemblyReference.cache
+E:\fall\fall\SVM40\obj\Debug\SVM40.exe
+E:\fall\fall\SVM40\obj\Debug\SVM40.pdb
